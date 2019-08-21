@@ -26,7 +26,17 @@
       <button id="start_stop" class="btn btn-lg btn-primary">START</button>
     </div>
   </div>
-  
+  <script>
+    var now = new Date();
+    var seconds = now.getSeconds(); //秒を取得している
+
+    if (seconds < 10) {
+      seconds = '0' + seconds; //10以上のときに011となるので、1〜10の間のとき0をつけると定義している
+    }
+
+
+    document.getElementById('timer').innerHTML = seconds;
+  </script>
 
 </body>
 
