@@ -27,15 +27,41 @@
     </div>
   </div>
   <script>
-    var now = new Date();
-    var seconds = now.getSeconds(); //秒を取得している
+    var addZero = function(value) {
+      if (value < 10) {
+        value = '0' + value;
+      }
 
-    if (seconds < 10) {
-      seconds = '0' + seconds; //10以上のときに011となるので、1〜10の間のとき0をつけると定義している
+      return value;
+
     }
+    var now = new Date();
 
+    var seconds = now.getSeconds(); //秒の取得
+    seconds = addZero(seconds);
 
-    document.getElementById('timer').innerHTML = seconds;
+    var minutes = now.getMinutes();
+    minutes = addZero(minutes);
+
+    var hours = now.getHours();
+    add = addZero(hours);
+    
+    // var seconds = now.getSeconds(); //秒を取得している
+    //   if (seconds < 10) {
+    //     seconds = '0' + seconds; //10以上のときに011となるので、1〜10の間のとき0をつけると定義している
+    //   }
+
+    // var minutes = now.getMinutes(); //分の取得
+    //   if (minutes < 10)
+    //   minutes = '0' + minutes;
+
+    // var hours = now.getHours();
+    //   if (hours < 10) {
+    //     hours = '0' + hours;
+    //   }
+    // 上記を繰り返すのはよろしくないので関数を定義して使う
+
+    document.getElementById('timer').innerHTML = hours + ':' + minutes + ':' + seconds;
   </script>
 
 </body>
