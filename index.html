@@ -27,8 +27,9 @@
     </div>
   </div>
   <script>
+    var start; 
     document.getElementById('start_stop').addEventListener('click', function () {
-      var start = new Date();
+      start = new Date();
 
       setInterval(goTimer, 10); //間隔指定してプログラムを実行する　間隔は1/1000秒ごとに
     });
@@ -36,7 +37,10 @@
     var goTimer = function() {
         var now = new Date();
 
-        document.getElementById('timer').innerHTML = now.getTime();
+        var milli = now.getTime() - start.getTime();
+        var seconds = Math.floor(milli / 1000);  //floorは小数を以下表示しないで、整数を表示するメソッド
+
+        document.getElementById('timer').innerHTML = seconds;
     }
 
 
