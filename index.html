@@ -27,7 +27,20 @@
     </div>
   </div>
   <script>
-    var addZero = function(value) {
+    document.getElementById('start_stop').addEventListener('click', function () {
+      var start = new Date();
+
+      setInterval(goTimer, 10); //間隔指定してプログラムを実行する　間隔は1/1000秒ごとに
+    });
+
+    var goTimer = function() {
+        var now = new Date();
+
+        document.getElementById('timer').innerHTML = now.getTime();
+    }
+
+
+   /* var addZero = function(value) {
       if (value < 10) {
         value = '0' + value;
       }
@@ -49,7 +62,7 @@
     add = addZero(hours);
 
     document.getElementById('timer').innerHTML = hours + ':' + minutes + ':' + seconds;
-    });
+    }); */
 
     
     // var seconds = now.getSeconds(); //秒を取得している
@@ -67,7 +80,7 @@
     //   }
     // 上記を繰り返すのはよろしくないので関数を定義して使う
 
-    
+    //セットインターバル=間隔をしているすることができる
   </script>
 
 </body>
