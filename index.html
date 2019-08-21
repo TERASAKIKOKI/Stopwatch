@@ -35,6 +35,8 @@
       return value;
 
     }
+
+    document.getElementById('start_stop').addEventListener('click', function(){   //
     var now = new Date();
 
     var seconds = now.getSeconds(); //秒の取得
@@ -45,6 +47,10 @@
 
     var hours = now.getHours();
     add = addZero(hours);
+
+    document.getElementById('timer').innerHTML = hours + ':' + minutes + ':' + seconds;
+    });
+
     
     // var seconds = now.getSeconds(); //秒を取得している
     //   if (seconds < 10) {
@@ -61,7 +67,7 @@
     //   }
     // 上記を繰り返すのはよろしくないので関数を定義して使う
 
-    document.getElementById('timer').innerHTML = hours + ':' + minutes + ':' + seconds;
+    
   </script>
 
 </body>
