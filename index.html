@@ -34,13 +34,30 @@
       setInterval(goTimer, 10); //間隔指定してプログラムを実行する　間隔は1/1000秒ごとに
     });
 
+    var addZero = function(value) {
+      if (value < 10) {
+        value + '0' + value;
+      }
+      return value;
+    }
+
     var goTimer = function() {
         var now = new Date();
 
         var milli = now.getTime() - start.getTime();
         var seconds = Math.floor(milli / 1000);  //floorは小数を以下表示しないで、整数を表示するメソッド
+        var minutes = Math.floor(seconds / 60); //分の表示
+        var hours = Math.floor(minutes / 60);  //時間の表示
 
-        document.getElementById('timer').innerHTML = seconds;
+        seconds = seconds - minutes * 60;
+        minutes = minutes - hours * 60;
+
+        hours = addZero(hours);
+        minutes = addZero(minutes);
+        seconds = addZero(seconds);
+
+
+        document.getElementById('timer').innerHTML = hours + ':' + minutes + ':' + seconds;
     }
 
 
